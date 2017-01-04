@@ -1,8 +1,8 @@
 <?php
 
 
-include 'contents/init.php';
-include 'functions/logs/logs.php';
+include './contents/init.php';
+include './functions/logs/logs.php';
 
 
 
