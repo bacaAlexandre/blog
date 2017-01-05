@@ -19,7 +19,7 @@ class User
       $this -> admin = $admin;
     }
 
-    public function inscription($bdd){
+    public function signIn($bdd){
       $sql = "SELECT * FROM user WHERE user.email = '".$this -> email."'";
       $userInscription = $bdd -> query($sql) -> fetch();
 
@@ -37,7 +37,7 @@ class User
       }
     }
 
-    public function connexion($bdd){
+    public function connect($bdd){
       $sql = "SELECT *
       FROM user
       WHERE user.email = '".$this -> email."' AND user.password = '".sha1($this -> password)."'";
@@ -55,7 +55,7 @@ class User
       }
     }
 
-    public function deconnexion($bdd){
+    public function disconnect($bdd){
       unset($_SESSION['user']);
     }
   }
