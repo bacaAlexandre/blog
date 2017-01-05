@@ -13,3 +13,5 @@ try {
   $e->getMessage();
 
 }
+
+session_start();
