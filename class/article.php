@@ -23,23 +23,36 @@ class Article {
   public function writeArticle($bdd) {
     $date = new DateTime();
     $date -> setTimezone(new DateTimeZone('Europe/Paris'));
-    $sql = $bdd->prepare("INSERT INTO article (titre, contenu, date, chapo, user_id)
+    $whrite = $bdd->prepare("INSERT INTO article (titre, contenu, date, chapo, user_id)
     VALUES (:titre, :contenu, :date, :chapo, :user_id)");
-    $sql->execute(array(
+    $whrite->execute(array(
       ":titre" => $this -> titre,
       ":contenu" => $this -> contenu,
       ":date" => $date -> format('Y-m-d h:i:s'),
       ":chapo" => $this -> chapo,
       ":user_id" => $this -> user_id,
     ));
-    var_dump($sql);
+    // var_dump($whrite);
+  }
+  public function showArticle($bdd) {
+    $sql = "SELECT * FROM article WHERE titre ='".$this -> titre."'" ;
+    $show = $bdd -> query($sql)-> fetchAll();
+    // var_dump($show);
   }
 
-  public function updateArticle() {
-
+  public function updateArticle($bdd) {
+    $update = $bdd -> prepare("UPDATE article SET titre = :titre, contenu = :contenu, date = :date, chapo = :chapo, user_id = :user_id");
+    $update->execute(array(
+      ":titre" => $this -> titre,
+      ":contenu" => $this -> contenu,
+      ":date" => $date -> format('Y-m-d h:i:s'),
+      ":chapo" => $this -> chapo,
+      ":user_id" => $this -> user_id,
+    ));
   }
 
-  public function deleteArticle() {
-
+  public function deleteArticle($bdd) {
+    $sql = $bdd -> prepare("DELETE FROM article WHERE titre ='".$this -> titre."'");
+    $delete = $sql -> execute();
   }
 }

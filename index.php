@@ -24,4 +24,6 @@ var_dump($_SESSION);
 
 
 $article1 = new article ("titre", "contenu", "0", "blabla", $_SESSION['user']['userId']);
-$article1 -> writeArticle($bdd);
+// $article1 -> writeArticle($bdd);
+// $article1 -> showArticle($bdd);
+// $article1 -> deleteArticle($bdd);
