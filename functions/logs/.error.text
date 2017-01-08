@@ -1,5 +1,0 @@
-04/01/17[10:24:30]exception 'PDOException' with message 'SQLSTATE[HY000] [1049] Base 'pouet' inconnue' in C:\wamp64\www\Objet\Exo 1\contents\init.php:10
-Stack trace:
-#0 C:\wamp64\www\Objet\Exo 1\contents\init.php(10): PDO->__construct('mysql:host=loca...', 'root', '')
-#1 C:\wamp64\www\Objet\Exo 1\index.php(4): include('C:\\wamp64\\www\\O...')
-#2 {main}
